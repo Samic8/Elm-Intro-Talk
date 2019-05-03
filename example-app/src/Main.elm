@@ -31,11 +31,14 @@ update msg model =
 view : Model -> Html Msg
 view model =
   ul []
-    (List.map (\fruit -> li [] [
+    (model |> viewFruitChecklist)
+
+viewFruitChecklist : Model -> List (Html Msg)
+viewFruitChecklist model =
+  List.map (\fruit -> li [] [
       span [] [text fruit]
       , input [ type_ "checkbox"
               , onCheck (fruit |> CheckboxChanged)
               , checked (model.selected |> Set.member fruit)
               ] []
-    ]
-    ) model.fruits)
+    ]) model.fruits
