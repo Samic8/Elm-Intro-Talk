@@ -14,25 +14,25 @@ type alias Model =
 
 init =
   { fruits = ["apple", "bannana", "kiwi", "pear", "mango", "grapes"]
-  , selected = Set.empty
+  , selected = Set.empty 
   }
 
-type Msg = Increment | Decrement
+type Msg = CheckboxChanged String Bool
 
 update : Msg -> Model -> Model
 update msg model =
   case msg of
-    Increment ->
-      model
-
-    Decrement ->
-      model
+    CheckboxChanged fruit isChecked ->
+      if isChecked then
+        { model | selected = Set.insert fruit model.selected }
+      else
+        { model | selected = Set.remove fruit model.selected }
 
 view : Model -> Html Msg
 view model =
   ul []
     (List.map (\fruit -> li [] [
       span [] [text fruit]
-      , input [ type_ "checkbox", onInput Increment] []
+      , input [ type_ "checkbox", onCheck (fruit |> CheckboxChanged), checked (model.selected |> Set.member fruit) ] []
     ]
     ) model.fruits)
