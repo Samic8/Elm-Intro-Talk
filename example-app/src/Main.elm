@@ -14,7 +14,7 @@ type alias Model =
 
 init =
   { fruits = ["apple", "bannana", "kiwi", "pear", "mango", "grapes"]
-  , selected = Set.empty 
+  , selected = Set.empty
   }
 
 type Msg = CheckboxChanged String Bool
@@ -33,6 +33,9 @@ view model =
   ul []
     (List.map (\fruit -> li [] [
       span [] [text fruit]
-      , input [ type_ "checkbox", onCheck (fruit |> CheckboxChanged), checked (model.selected |> Set.member fruit) ] []
+      , input [ type_ "checkbox"
+              , onCheck (fruit |> CheckboxChanged)
+              , checked (model.selected |> Set.member fruit)
+              ] []
     ]
     ) model.fruits)
