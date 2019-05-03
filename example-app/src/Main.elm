@@ -7,6 +7,8 @@ import Set exposing (Set)
 main =
   Browser.sandbox { init = init, update = update, view = view }
 
+-- Init
+
 type alias Model = 
   { fruits: List String
   , selected: Set String
@@ -16,6 +18,8 @@ init =
   { fruits = ["apple", "bannana", "kiwi", "pear", "mango", "grapes"]
   , selected = Set.empty
   }
+
+-- Update
 
 type Msg = CheckboxChanged String Bool
 
@@ -27,6 +31,8 @@ update msg model =
         { model | selected = Set.insert fruit model.selected }
       else
         { model | selected = Set.remove fruit model.selected }
+
+-- View
 
 view : Model -> Html Msg
 view model =
