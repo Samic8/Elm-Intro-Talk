@@ -51,7 +51,7 @@ Introduce them to this before getting into other code
 Set.member fruit model.selected
 can be changed to model.selected |> Set.member fruit
 Core functions use the convention of data last to allow for this kind of thing (fix)
-- Ability to partialy run functions
+- Ability to partially run functions
 
 ## Walk through of example (fruit store)
 Purpose is to get a feel for syntax etc. and show off my favorite feature refactoring with the compiler messages
