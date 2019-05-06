@@ -44,13 +44,24 @@ View — a way to view your state as HTML
 Speaker notes:
 Redux was inspired so the update pattern may look familiar
 
+## Note on typing for function
+Introduce them to this before getting into other code
+
 ## Every function is curried 
 Set.member fruit model.selected
 can be changed to model.selected |> Set.member fruit
 Core functions use the convention of data last to allow for this kind of thing (fix)
+- Ability to partialy run functions
 
 ## Walk through of example (fruit store)
 Purpose is to get a feel for syntax etc. and show off my favorite feature refactoring with the compiler messages
+
+- Talk about common formating? for fun
+
+## Refactoring seasonality
+- Maybe jump to a completed version of this then show refactoring
+
+## Using the elm repl to learn
 
 ## References
 (Elm Crash Course)[https://www.youtube.com/watch?v=kEitFAY7Gc8]
