@@ -58,14 +58,16 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 5], note: 'Imports' },
             { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
-            { loc: [6, 8], image: images.elmSandbox, title: 'Browser.Sandbox' },
+            { loc: [6, 8], image: images.elmSandbox, title: 'Browser.Sandbox', note: 'Basic version of the Elm Architecture **Init** **Update** **View**' },
             { loc: [6, 8], image: images.elmElement, title: 'Browser.Element', note: 'Introduces commands and subscriptions, which allows interaction with other JS things' },
-            { loc: [1, 2] },
-            { loc: [1, 2], note: 'Heres a note!' },
-            { loc: [2, 3] },
-            { loc: [4, 7] },
-            { loc: [8, 10] },
-            // ...
+            { loc: [9, 20], title: 'Init' },
+            { loc: [21, 34], title: 'Update' },
+            { loc: [23, 24], note: 'Union type definition. In this case only one type with two params'},
+            { loc: [25, 26], note: 'Takes two arguments and returns model. Always!'},
+            { loc: [26, 27], note: 'Using function paramaters'},
+            { loc: [27, 34], note: 'Switch statement that makes the developer account for all cases'},
+            { loc: [30, 31], note: 'Syntax for creating a new record, much like Object.assign() in JS. Does not mutate!'},
+            { loc: [34, 49], title: 'View'},
           ]}/>
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
