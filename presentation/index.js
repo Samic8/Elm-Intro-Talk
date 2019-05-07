@@ -1,5 +1,6 @@
 // Import React
 import React from 'react';
+import CodeSlide from 'spectacle-code-slide';
 
 // Import Spectacle Core tags
 import {
@@ -13,7 +14,8 @@ import {
   Notes,
   Quote,
   Slide,
-  Text
+  Text,
+  CodePane
 } from 'spectacle';
 
 // Import theme
@@ -21,7 +23,8 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   formidagon: require('../assets/formidable-logo.svg'),
-  goodWork: require('../assets/good-work.gif')
+  goodWork: require('../assets/good-work.gif'),
+  elmSandbox: require('../assets/elm-sandbox.svg')
 };
 
 // Require CSS
@@ -48,6 +51,21 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
+        <CodeSlide
+          lang="js"
+          code={require('raw-loader!../example-app/src/Main.elm')}
+          ranges={[
+            { loc: [0, 5], note: 'Imports' },
+            { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
+            { loc: [6, 8], image: images.elmSandbox },
+            // TODO show other verisions of Architecture images from elm docs
+            { loc: [1, 2] },
+            { loc: [1, 2], note: 'Heres a note!' },
+            { loc: [2, 3] },
+            { loc: [4, 7] },
+            { loc: [8, 10] },
+            // ...
+          ]}/>
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Spectacle Boilerplate
