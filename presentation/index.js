@@ -24,7 +24,8 @@ import createTheme from 'spectacle/lib/themes/default';
 const images = {
   formidagon: require('../assets/formidable-logo.svg'),
   goodWork: require('../assets/good-work.gif'),
-  elmSandbox: require('../assets/elm-sandbox.svg')
+  elmSandbox: require('../assets/elm-sandbox.svg'),
+  elmElement: require('../assets/elm-element.svg')
 };
 
 // Require CSS
@@ -57,8 +58,8 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 5], note: 'Imports' },
             { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
-            { loc: [6, 8], image: images.elmSandbox },
-            // TODO show other verisions of Architecture images from elm docs
+            { loc: [6, 8], image: images.elmSandbox, title: 'Browser.Sandbox' },
+            { loc: [6, 8], image: images.elmElement, title: 'Browser.Element', note: 'Introduces commands and subscriptions, which allows interaction with other JS things' },
             { loc: [1, 2] },
             { loc: [1, 2], note: 'Heres a note!' },
             { loc: [2, 3] },
