@@ -128,28 +128,31 @@ export default class Presentation extends React.Component {
           <Notes>
             <List>
               <ListItem>Only one way to do all these things / structure code</ListItem>
-              <ListItem>Item 2</ListItem>
+              <ListItem>They all work together nicely, pain points from intergration JS stack together</ListItem>
               <ListItem>Item 3</ListItem>
               <ListItem>Item 4</ListItem>
             </List>
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
+          <Text textColor="secondary">
+            Just because there are no exceptions does not mean you can produce code that is <b>wrong</b>
+          </Text>
+          <Text textColor="secondary" style={{marginTop: '3rem'}}>
+            "The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is [color is not a property of undefined]"
+          </Text>
+          <Notes>
+            <List>
+              <ListItem>Complier will fail and warn</ListItem>
+              <ListItem>You can do functional programming with JS but it requires a lot of discipline </ListItem>
+            </List>
+          </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite margin="10px 0 0 30px">Author</Cite>
-          </BlockQuote>
+        <Slide transition={['fade']} bgColor="primary" textColor="primary">
+          <Text textColor="secondary" style={{marginTop: '3rem'}}>
+            Side effects can happen, but outside of your elm code
+          </Text>
+          <Image src={images.elmElement} style={{marginBottom: '2.2rem'}}/>
         </Slide>
         <Slide>
           <Image src={images.goodWork} width={500} />
