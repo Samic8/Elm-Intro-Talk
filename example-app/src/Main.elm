@@ -21,7 +21,7 @@ init =
 
 -- Update
 
-type Msg = CheckboxChanged String Bool
+type Msg = CheckboxChanged String Bool | FruitDeleted String
 
 update : Msg -> Model -> Model
 update msg model =
@@ -31,20 +31,20 @@ update msg model =
         { model | selected = Set.insert fruit model.selected }
       else
         { model | selected = Set.remove fruit model.selected }
+    FruitDeleted fruit ->
+      { model | fruits = model.fruits |> List.filter (\stockedFruit -> stockedFruit /= fruit ) }
 
 -- View
 
 view : Model -> Html Msg
 view model =
   ul []
-    (model |> viewFruitChecklist)
-
-viewFruitChecklist : Model -> List (Html Msg)
-viewFruitChecklist model =
-  List.map (\fruit -> li [] [
-      span [] [text fruit]
-      , input [ type_ "checkbox"
-              , onCheck (fruit |> CheckboxChanged)
-              , checked (model.selected |> Set.member fruit)
-              ] []
-    ]) model.fruits
+    (model.fruits |> List.map (\fruit ->
+      li [] [
+        span [] [ text fruit ]
+        , input [ type_ "checkbox"
+                , onCheck (CheckboxChanged fruit)
+                , checked (Set.member fruit model.selected)
+                ] []
+        , span [ onClick (FruitDeleted fruit) ] [ text "x"]
+    ]))

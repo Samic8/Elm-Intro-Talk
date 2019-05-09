@@ -90,7 +90,7 @@ export default class Presentation extends React.Component {
                 <ListItem>Functional language</ListItem>
                 <ListItem>Statically typed + inference</ListItem>
                 <ListItem>All data is immutable</ListItem>
-                <ListItem>All function are pure (no side effects)</ListItem>
+                <ListItem>All functions are pure (no side effects)</ListItem>
                 <ListItem>'null' / 'undefined' / Exceptions do not exist</ListItem>
               </List>
             </div>
@@ -127,10 +127,8 @@ export default class Presentation extends React.Component {
           </div>
           <Notes>
             <List>
-              <ListItem>Only one way to do all these things / structure code</ListItem>
-              <ListItem>They all work together nicely, pain points from intergration JS stack together</ListItem>
-              <ListItem>Item 3</ListItem>
-              <ListItem>Item 4</ListItem>
+              <ListItem>Only one way to do all these things / structure code (elm architecture)</ListItem>
+              <ListItem>They all work together nicely, maybe you have experienced pain points from integration JS stack together</ListItem>
             </List>
           </Notes>
         </Slide>
@@ -139,12 +137,14 @@ export default class Presentation extends React.Component {
             Just because there are no exceptions does not mean you can produce code that is <b>wrong</b>
           </Text>
           <Text textColor="secondary" style={{marginTop: '3rem'}}>
-            "The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is [color is not a property of undefined]"
+            "The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is [TypeError: color is not a property of undefined]"
           </Text>
           <Notes>
             <List>
-              <ListItem>Complier will fail and warn</ListItem>
-              <ListItem>You can do functional programming with JS but it requires a lot of discipline </ListItem>
+              <ListItem>In elm you can write code that is wrong</ListItem>
+              <ListItem>In JS you can write code that is broken</ListItem>
+              <ListItem>Functional won't save you from semantic incorrectness but will save you from broken</ListItem>
+              <ListItem>Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure</ListItem>
             </List>
           </Notes>
         </Slide>
@@ -153,11 +153,25 @@ export default class Presentation extends React.Component {
             Side effects can happen, but outside of your elm code
           </Text>
           <Image src={images.elmElement} style={{marginBottom: '2.2rem'}}/>
+          <Notes>
+            <List>
+              <ListItem>Elm app can command the runtime system to make an HTTP request or to generate a random number</ListItem>
+              <ListItem>Elm app can subscribe to events from JS</ListItem>
+              <ListItem>Create a strong boundary between elm and JS</ListItem>
+              <ListItem>Applications can use cmd/sub, elm packages cannot</ListItem>
+              <ListItem>All packages are written in Elm, and have all of the guarantees of pure functions and strict types. Plus enforced semantic versioning (wont let you do major version if breaking change)</ListItem>
+            </List>
+          </Notes>
         </Slide>
-        <Slide>
-          <Image src={images.goodWork} width={500} />
-          <Notes>gifs work too</Notes>
-        </Slide>
+        <CodeSlide
+          lang="js"
+          code={require('raw-loader!../example-app/src/Main-elm-arch.elm')}
+          ranges={[
+            { loc: [0, 5], title: 'The Elm Architecture'},
+            { loc: [5, 9], title: 'The Elm Architecture', note: 'Initial Data Model'},
+            { loc: [9, 15], title: 'The Elm Architecture', note: 'Msg is like redux actions. Update contains all business logic' },
+            { loc: [15, 18], title: 'The Elm Architecture', note: 'Builds HTML. Set up messages (Msg) that might be triggered' }
+          ]}/>
         <CodeSlide
           lang="js"
           code={require('raw-loader!../example-app/src/Main.elm')}
@@ -176,7 +190,11 @@ export default class Presentation extends React.Component {
             { loc: [34, 49], title: 'View'},
             { loc: [36, 40], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
             { loc: [41, 49], note: 'Implementation details of building up HTML'},
-        ]}/>
+          ]}/>
+        <Slide>
+          <Heading>Resources</Heading>
+          <a href={"https://www.youtube.com/watch?v=kEitFAY7Gc8&t"}>elm crash course</a>
+        </Slide>
       </Deck>
     );
   }
