@@ -63,6 +63,10 @@ Purpose is to get a feel for syntax etc. and show off my favorite feature refact
 
 ## Using the elm repl to learn
 
+## Package research
+Seems only core elm libraries have access to JS
+All other packages are written in elm. This allows enforced semantic versioning, e.g. you can't change return types of a function without bumping up a major version
+
 ## References
 (Elm Crash Course)[https://www.youtube.com/watch?v=kEitFAY7Gc8]
 (Elm Guide)[https://guide.elm-lang.org/]
