@@ -126,26 +126,28 @@ export default class Presentation extends React.Component {
             </div>
           </div>
           <Notes>
-            <List>
-              <ListItem>Only one way to do all these things / structure code (elm architecture)</ListItem>
-              <ListItem>They all work together nicely, maybe you have experienced pain points from integration JS stack together</ListItem>
-            </List>
+            - If wanted to mirror elm in JS
+            <hr/>
+            - Only one way to do all these things / structure code (elm architecture)
+            <hr/>
+            - They all work together nicely, maybe you have experienced pain points from integration JS stack together
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
           <Text textColor="secondary">
-            Just because there are no exceptions does not mean you can produce code that is <b>wrong</b>
+            Just because there are no exceptions does not mean you cant produce code that is <b>wrong</b>
           </Text>
           <Text textColor="secondary" style={{marginTop: '3rem'}}>
-            "The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is [TypeError: color is not a property of undefined]"
+            <BlockQuote>"The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is <span style={{color: 'red'}}>[TypeError: color is not a property of undefined]</span>"</BlockQuote>
           </Text>
           <Notes>
-            <List>
-              <ListItem>In elm you can write code that is wrong</ListItem>
-              <ListItem>In JS you can write code that is broken</ListItem>
-              <ListItem>Functional won't save you from semantic incorrectness but will save you from broken</ListItem>
-              <ListItem>Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure</ListItem>
-            </List>
+            - In elm you can write code that is wrong
+            <hr/>
+            - In JS you can write code that is broken
+            <hr/>
+            - Functional won't save you from semantic incorrectness but will save you from broken
+            <hr/>
+            - Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="primary">
@@ -154,16 +156,21 @@ export default class Presentation extends React.Component {
           </Text>
           <Image src={images.elmElement} style={{marginBottom: '2.2rem'}}/>
           <Notes>
-            <List>
-              <ListItem>Elm app can command the runtime system to make an HTTP request or to generate a random number</ListItem>
-              <ListItem>Elm app can subscribe to events from JS</ListItem>
-              <ListItem>Create a strong boundary between elm and JS</ListItem>
-              <ListItem>Applications can use cmd/sub, elm packages cannot</ListItem>
-              <ListItem>All packages are written in Elm, and have all of the guarantees of pure functions and strict types. Plus enforced semantic versioning (wont let you do major version if breaking change)</ListItem>
-            </List>
+            Elm app can command the runtime system to make an HTTP request or to generate a random number
+            <hr/>
+            Elm app can subscribe to events from JS
+            <hr/>
+            Create a strong boundary between elm and JS
+            <hr/>
+            Similar to the concept of erroring early. You don't end up with broken code deep in your program
+            <hr/>
+            Applications can use cmd/sub, elm packages cannot
+            <hr/>
+            All packages are written in Elm, and have all of the guarantees of pure functions and strict types. Plus enforced semantic versioning (wont let you do major version if breaking change)
           </Notes>
         </Slide>
         <CodeSlide
+          bgColor="quaternary"
           lang="js"
           code={require('raw-loader!../example-app/src/Main-elm-arch.elm')}
           ranges={[
@@ -171,15 +178,19 @@ export default class Presentation extends React.Component {
             { loc: [5, 9], title: 'The Elm Architecture', note: 'Initial Data Model'},
             { loc: [9, 15], title: 'The Elm Architecture', note: 'Msg is like redux actions. Update contains all business logic' },
             { loc: [15, 18], title: 'The Elm Architecture', note: 'Builds HTML. Set up messages (Msg) that might be triggered' }
-          ]}/>
+          ]}>
+          <Notes>
+            - Blank assignments to get a feel for the architecture
+          </Notes>
+        </CodeSlide>
         <CodeSlide
+          bgColor="quaternary"
           lang="js"
           code={require('raw-loader!../example-app/src/Main.elm')}
           ranges={[
             { loc: [0, 5], note: 'Imports' },
             { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
             { loc: [6, 8], image: images.elmSandbox, title: 'Browser.Sandbox', note: 'Basic version of the Elm Architecture **Init** **Update** **View**' },
-            { loc: [6, 8], image: images.elmElement, title: 'Browser.Element', note: 'Introduces commands and subscriptions, which allows interaction with other JS things' },
             { loc: [9, 20], title: 'Init' },
             { loc: [21, 34], title: 'Update' },
             { loc: [23, 24], note: 'Union type definition. In this case only one type with two params'},
@@ -191,9 +202,22 @@ export default class Presentation extends React.Component {
             { loc: [36, 40], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
             { loc: [41, 49], note: 'Implementation details of building up HTML'},
           ]}/>
-        <Slide>
-          <Heading>Resources</Heading>
-          <a href={"https://www.youtube.com/watch?v=kEitFAY7Gc8&t"}>elm crash course</a>
+        <Slide bgColor="quaternary" >
+          <Heading textColor="primary">Things I have not worked out yet</Heading>
+          <List>
+            <ListItem>How and when to break a file into multiple modules. Interesting talk: <a href="https://www.youtube.com/watch?v=XpDsk374LDE">The life of a file</a></ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor="quaternary">
+          <Heading textColor="primary">Resources</Heading>
+          <List>
+            <ListItem><a href={"https://www.youtube.com/watch?v=kEitFAY7Gc8&t"}>elm crash course</a></ListItem>
+            <ListItem><a href={"https://elm-lang.org/docs"}>elm docs + official guide</a></ListItem>
+            <ListItem>elm cli: <b>elm repl</b></ListItem>
+          </List>
+          <Notes>
+            - elm repl good for learning the core language
+          </Notes>
         </Slide>
       </Deck>
     );
