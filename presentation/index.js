@@ -1,6 +1,8 @@
 // Import React
 import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
+import Elm from 'react-elm-components';
+import elmSource from '../example-app/dist/main.js';
 
 // Import Spectacle Core tags
 import {
@@ -183,6 +185,9 @@ export default class Presentation extends React.Component {
             - Blank assignments to get a feel for the architecture
           </Notes>
         </CodeSlide>
+        <Slide>
+          <Elm src={elmSource.Elm.Main}/>
+        </Slide>
         <CodeSlide
           bgColor="quaternary"
           lang="js"
