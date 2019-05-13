@@ -1,6 +1,8 @@
 // Import React
 import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
+import 'prismjs/components/prism-elm';
+import 'prismjs/themes/prism.css';
 import Elm from 'react-elm-components';
 import elmSource from '../example-app/dist/main.js';
 
@@ -172,14 +174,14 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
         <CodeSlide
-          bgColor="quaternary"
-          lang="js"
+          bgColor="primary"
+          lang="elm"
           code={require('raw-loader!../example-app/src/Main-elm-arch.elm')}
           ranges={[
-            { loc: [0, 5], title: 'The Elm Architecture'},
-            { loc: [5, 9], title: 'The Elm Architecture', note: 'Initial Data Model'},
-            { loc: [9, 15], title: 'The Elm Architecture', note: 'Msg is like redux actions. Update contains all business logic' },
-            { loc: [15, 18], title: 'The Elm Architecture', note: 'Builds HTML. Set up messages (Msg) that might be triggered' }
+            { loc: [0, 5] },
+            { loc: [5, 9], note: 'Initial Data Model'},
+            { loc: [9, 15], note: 'Msg is like redux actions. Update contains all business logic' },
+            { loc: [15, 18], note: 'Builds HTML. Set up messages (Msg) that might be triggered' }
           ]}>
           <Notes>
             - Blank assignments to get a feel for the architecture
@@ -189,21 +191,21 @@ export default class Presentation extends React.Component {
           <Elm src={elmSource.Elm.Main}/>
         </Slide>
         <CodeSlide
-          bgColor="quaternary"
-          lang="js"
+          bgColor="primary"
+          lang="elm"
           code={require('raw-loader!../example-app/src/Main.elm')}
           ranges={[
             { loc: [0, 5], note: 'Imports' },
             { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
-            { loc: [6, 8], image: images.elmSandbox, title: 'Browser.Sandbox', note: 'Basic version of the Elm Architecture **Init** **Update** **View**' },
-            { loc: [9, 20], title: 'Init' },
-            { loc: [21, 34], title: 'Update' },
+            { loc: [6, 8], image: images.elmSandbox, note: 'Basic version of the Elm Architecture **Init** **Update** **View**' },
+            { loc: [9, 20] },
+            { loc: [21, 34] },
             { loc: [23, 24], note: 'Union type definition. In this case only one type with two params'},
             { loc: [25, 26], note: 'Takes two arguments and returns model. Always!'},
             { loc: [26, 27], note: 'Using function paramaters'},
             { loc: [27, 34], note: 'Switch statement that makes the developer account for all cases'},
             { loc: [30, 31], note: 'Syntax for creating a new record, much like Object.assign() in JS. Does not mutate!'},
-            { loc: [34, 49], title: 'View'},
+            { loc: [34, 49] },
             { loc: [36, 40], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
             { loc: [41, 49], note: 'Implementation details of building up HTML'},
           ]}/>
