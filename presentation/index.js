@@ -4,7 +4,7 @@ import CodeSlide from 'spectacle-code-slide';
 import 'prismjs/components/prism-elm';
 import 'prismjs/themes/prism.css';
 import Elm from 'react-elm-components';
-import elmSource from '../example-app/dist/main.js';
+import elmSource from '../example-app/dist/counter.js';
 
 // Import Spectacle Core tags
 import {
@@ -31,7 +31,22 @@ const images = {
   goodWork: require('../assets/good-work.gif'),
   elmSandbox: require('../assets/elm-sandbox.svg'),
   elmElement: require('../assets/elm-element.svg'),
-  elmLogo: require('../assets/elm-logo.svg')
+  elmLogo: require('../assets/elm-logo.svg'),
+  sandbox1: require('../assets/sandbox-1.svg'),
+  sandbox2: require('../assets/sandbox-2.svg'),
+  sandbox3: require('../assets/sandbox-3.svg'),
+  sandbox4: require('../assets/sandbox-4.svg'),
+  sandbox5: require('../assets/sandbox-5.svg'),
+  sandbox6: require('../assets/sandbox-6.svg'),
+  sandbox7: require('../assets/sandbox-7.svg'),
+  element1: require('../assets/element-1.svg'),
+  element2: require('../assets/element-2.svg'),
+  element3: require('../assets/element-3.svg'),
+  element4: require('../assets/element-4.svg'),
+  element5: require('../assets/element-5.svg'),
+  element6: require('../assets/element-6.svg'),
+  element7: require('../assets/element-7.svg'),
+  element8: require('../assets/element-8.svg'),
 };
 
 // Require CSS
@@ -154,25 +169,6 @@ export default class Presentation extends React.Component {
             - Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure
           </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Text textColor="secondary" style={{marginTop: '3rem'}}>
-            Side effects can happen, but outside of your elm code
-          </Text>
-          <Image src={images.elmElement} style={{marginBottom: '2.2rem'}}/>
-          <Notes>
-            Elm app can command the runtime system to make an HTTP request or to generate a random number
-            <hr/>
-            Elm app can subscribe to events from JS
-            <hr/>
-            Create a strong boundary between elm and JS
-            <hr/>
-            Similar to the concept of erroring early. You don't end up with broken code deep in your program
-            <hr/>
-            Applications can use cmd/sub, elm packages cannot
-            <hr/>
-            All packages are written in Elm, and have all of the guarantees of pure functions and strict types. Plus enforced semantic versioning (wont let you do major version if breaking change)
-          </Notes>
-        </Slide>
         <CodeSlide
           bgColor="primary"
           lang="elm"
@@ -193,22 +189,93 @@ export default class Presentation extends React.Component {
         <CodeSlide
           bgColor="primary"
           lang="elm"
-          code={require('raw-loader!../example-app/src/Main.elm')}
+          code={require('raw-loader!../example-app/src/Counter.elm')}
           ranges={[
-            { loc: [0, 5], note: 'Imports' },
-            { loc: [6, 8], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
-            { loc: [6, 8], image: images.elmSandbox, note: 'Basic version of the Elm Architecture **Init** **Update** **View**' },
-            { loc: [9, 20] },
-            { loc: [21, 34] },
-            { loc: [23, 24], note: 'Union type definition. In this case only one type with two params'},
-            { loc: [25, 26], note: 'Takes two arguments and returns model. Always!'},
-            { loc: [26, 27], note: 'Using function paramaters'},
-            { loc: [27, 34], note: 'Switch statement that makes the developer account for all cases'},
-            { loc: [30, 31], note: 'Syntax for creating a new record, much like Object.assign() in JS. Does not mutate!'},
-            { loc: [34, 49] },
-            { loc: [36, 40], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
-            { loc: [41, 49], note: 'Implementation details of building up HTML'},
+            { loc: [0, 3], note: 'Imports' },
+            { loc: [4, 6], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
+            { loc: [7, 8], note: 'Union type definition. Like a ENUM'},
+            { loc: [9, 17], note: 'Like redux actions'},
+            { loc: [17, 24], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
           ]}/>
+        <Slide>
+          <div style={{display: 'flex'}}>
+            <span>main = Browser.sandbox &#123;</span>
+            <span style={{flex: '1 1 auto'}}>init</span>
+            <span style={{flex: '1 1 auto'}}>update</span>
+            <span style={{flex: '1 1 auto'}}>view</span>
+            <span>&#125;</span>
+          </div>
+          <br/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox1} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox2} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox3} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox4} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox5} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox6} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
+          <img src={images.sandbox7} style={{width: '100%'}}/>
+        </Slide>
+        <Slide>
+          <Heading size={4}>How do you do side effects?</Heading>
+          <List>
+            <ListItem>HTTP</ListItem>
+            <ListItem>Time</ListItem>
+            <ListItem>DOM event commands</ListItem>
+            <ListItem>Randomness e.g. Math.Random</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element1} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element2} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element3} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element4} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element5} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element6} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element7} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element8} style={{width: '100%'}}/>
+        </Slide>
         <Slide bgColor="quaternary" >
           <Heading textColor="primary">Things I have not worked out yet</Heading>
           <List>
