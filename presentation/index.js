@@ -111,6 +111,10 @@ export default class Presentation extends React.Component {
               </List>
             </div>
           </Appear>
+          <Notes>
+            - Guarantees
+            <br/>
+          </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <div style={{display: 'flex'}}>
@@ -142,7 +146,7 @@ export default class Presentation extends React.Component {
             </div>
           </div>
           <Notes>
-            - If wanted to mirror elm in JS
+            - Mirror elm in JS, possible options
             <hr/>
             - Only one way to do all these things / structure code (elm architecture)
             <hr/>
@@ -165,6 +169,15 @@ export default class Presentation extends React.Component {
             <hr/>
             - Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure
           </Notes>
+        </Slide>
+        <Slide>
+          <Heading size={4}>The Elm Architecture</Heading>
+          <List>
+            <ListItem>Pattern for creating applications</ListItem>
+            <ListItem>Opinionated pattern, only way to structure applications</ListItem>
+            <ListItem>Projects like redux have been inspired by it, ideas here might some familiar</ListItem>
+            <ListItem>Separate concept form the core language, which is the basic types. e.g. ("hello" ++ "world")</ListItem>
+          </List>
         </Slide>
         <CodeSlide
           bgColor="primary"
