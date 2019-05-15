@@ -102,9 +102,6 @@ export default class Presentation extends React.Component {
           </Appear>
           <Appear>
             <div>
-              <Heading size={3} textColor="secondary" style={{marginTop: '2.2rem'}} textAlign="left">
-                How?
-              </Heading>
               <List>
                 <ListItem>Functional language</ListItem>
                 <ListItem>Statically typed + inference</ListItem>
