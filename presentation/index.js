@@ -103,6 +103,7 @@ export default class Presentation extends React.Component {
           <Appear>
             <div>
               <List>
+                <ListItem>Compiles to Javascript</ListItem>
                 <ListItem>Functional language</ListItem>
                 <ListItem>Statically typed + inference</ListItem>
                 <ListItem>All data is immutable</ListItem>
