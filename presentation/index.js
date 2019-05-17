@@ -47,6 +47,8 @@ const images = {
   element6: require('../assets/element-6.svg'),
   element7: require('../assets/element-7.svg'),
   element8: require('../assets/element-8.svg'),
+  element9: require('../assets/element-9.svg'),
+  element10: require('../assets/element-10.svg')
 };
 
 // Require CSS
@@ -286,6 +288,14 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element8} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element9} style={{width: '100%'}}/>
+        </Slide>
+        <Slide transition={['fade']}>
+          <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
+          <img src={images.element10} style={{width: '100%'}}/>
         </Slide>
         <Slide bgColor="quaternary" >
           <Heading textColor="primary">Things I have not worked out yet</Heading>
