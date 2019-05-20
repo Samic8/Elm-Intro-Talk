@@ -81,6 +81,7 @@ export default class Presentation extends React.Component {
         transition={['zoom', 'slide']}
         transitionDuration={500}
         theme={theme}
+        contentWidth={"1200px"}
       >
         <Slide transition={['zoom']} bgColor="quaternary">
           <Image src={images.elmLogo} style={{marginBottom: '2.2rem'}}/>
@@ -156,12 +157,12 @@ export default class Presentation extends React.Component {
             - They all work together nicely, maybe you have experienced pain points from integration JS stack together
           </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+        <Slide transition={['fade']} bgColor="quaternary" textColor="tertiary">
           <Text textColor="secondary">
             Just because there are no exceptions does not mean you cant produce code that is <b>wrong</b>
           </Text>
           <Text textColor="secondary" style={{marginTop: '3rem'}}>
-            <BlockQuote>"The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is <span style={{color: 'red'}}>[TypeError: color is not a property of undefined]</span>"</BlockQuote>
+            <BlockQuote>"The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is <span style={{color: '#942c2c'}}>[TypeError: color is not a property of undefined]</span>"</BlockQuote>
           </Text>
           <Notes>
             - In elm you can write code that is wrong
@@ -173,14 +174,18 @@ export default class Presentation extends React.Component {
             - Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure
           </Notes>
         </Slide>
-        <Slide>
-          <Heading size={4}>The Elm Architecture</Heading>
+        <Slide transition={['fade']} bgColor="quaternary">
+          <Heading size={4} textColor="primary">The Elm Architecture</Heading>
           <List>
             <ListItem>Pattern for creating applications</ListItem>
-            <ListItem>Opinionated pattern, only way to structure applications</ListItem>
-            <ListItem>Projects like redux have been inspired by it, ideas here might some familiar</ListItem>
-            <ListItem>Separate concept form the core language, which is the basic types. e.g. ("hello" ++ "world")</ListItem>
+            <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
+            <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
           </List>
+          <Notes>
+            - Opinionated pattern, only way to structure applications
+            <hr/>
+            - Lets get into a example of how all elm apps are structured
+          </Notes>
         </Slide>
         <CodeSlide
           bgColor="primary"
@@ -196,29 +201,44 @@ export default class Presentation extends React.Component {
             - Blank assignments to get a feel for the architecture
           </Notes>
         </CodeSlide>
-        <Slide>
+        <Slide transition={['fade']}>
           <Elm src={elmSource.Elm.Main}/>
+          <Notes>
+            Step through the code to create this app next
+            <hr/>
+            Simple counter, can increment and decrement
+          </Notes>
         </Slide>
         <CodeSlide
+          transition={['fade']}
           bgColor="primary"
           lang="elm"
           code={require('raw-loader!../example-app/src/Counter.elm')}
           ranges={[
             { loc: [0, 3], note: 'Imports' },
-            { loc: [4, 6], note: 'Sandbox is the most restrictive version of the Elm Architecture' },
-            { loc: [7, 8], note: 'Union type definition. Like a ENUM'},
-            { loc: [9, 17], note: 'Like redux actions'},
-            { loc: [17, 24], note: '**view**, like update is just a function. Elm architecture calls view after Model change'},
+            { loc: [4, 6], note: 'In Sandbox mode everything is Elm' },
+            { loc: [7, 8], note: 'Union type definition. Like a ENUM. Each value is like a label'},
+            { loc: [9, 17], note: 'Actions that can happen in our app. Business logic goes here'},
+            { loc: [17, 24], note: 'View is called after every Model change. Builds HTML'},
           ]}/>
-        <Slide>
+        <Slide transition={['fade']}>
           <div style={{display: 'flex'}}>
-            <span>main = Browser.sandbox &#123;</span>
+            <span><b>main</b> = Browser.<span style={{color: '#60B5CC'}}>Sandbox</span> &#123;</span>
             <span style={{flex: '1 1 auto'}}>init</span>
             <span style={{flex: '1 1 auto'}}>update</span>
             <span style={{flex: '1 1 auto'}}>view</span>
             <span>&#125;</span>
           </div>
           <br/>
+          <Notes>
+            Every elm program has a main variable it looks for
+            <hr/>
+            Lets focus on sandbox
+            <hr/>
+            Sandbox cant communicate outside of elm code
+            <hr/>
+            Good for learning and can help us get an idea of how the architecture works
+          </Notes>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
@@ -248,14 +268,38 @@ export default class Presentation extends React.Component {
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox7} style={{width: '100%'}}/>
         </Slide>
-        <Slide>
-          <Heading size={4}>How do you do side effects?</Heading>
+        <Slide transition={['fade']} bgColor="quaternary">
+          <Heading size={4} textColor="primary">Side effects?</Heading>
           <List>
             <ListItem>HTTP</ListItem>
             <ListItem>Time</ListItem>
-            <ListItem>DOM event commands</ListItem>
-            <ListItem>Randomness e.g. Math.Random</ListItem>
+            <ListItem>DOM event commands (focus, click)</ListItem>
           </List>
+          <Notes>
+            Mentioned no side effects in Elm code
+            <hr/>
+            All things you don't have control of
+            <hr/>
+            How does Elm handle them
+          </Notes>
+        </Slide>
+        <Slide transition={['fade']}>
+          <div style={{display: 'flex'}}>
+            <span><b>main</b> = Browser.<span style={{color: '#60B5CC'}}>Element</span> &#123;</span>
+            <span style={{flex: '1 1 auto'}}>init</span>
+            <span style={{flex: '1 1 auto'}}>update</span>
+            <span style={{flex: '1 1 auto'}}>view</span>
+            <span style={{flex: '1 1 auto'}}>subscriptions</span>
+            <span>&#125;</span>
+          </div>
+          <br/>
+          <Notes>
+            Element, introduces commands and subscriptions which let you interact with the outside world (Javascript)
+            <hr/>
+            Can command the runtime system to make HTTP request
+            <hr/>
+            Or we can subscribe to the current time every 10 seconds
+          </Notes>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
@@ -298,7 +342,7 @@ export default class Presentation extends React.Component {
           <img src={images.element10} style={{width: '100%'}}/>
         </Slide>
         <Slide bgColor="quaternary" >
-          <Heading textColor="primary">Things I have not worked out yet</Heading>
+          <Heading textColor="primary" size={5}>I have not worked out yet</Heading>
           <List>
             <ListItem>How and when to break a file into multiple modules. Interesting talk: <a href="https://www.youtube.com/watch?v=XpDsk374LDE">The life of a file</a></ListItem>
           </List>
