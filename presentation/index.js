@@ -116,8 +116,27 @@ export default class Presentation extends React.Component {
             </div>
           </Appear>
           <Notes>
-            - Guarantees
-            <br/>
+            <b>Compiles to Javascript</b><br/>
+            - Completely new language<br/>- Compiles to JS
+            <hr/>
+            <b>Functional Language</b><br/>
+            <hr/>
+            <b>Statically typed + inference</b><br/>
+            - Type annotations
+            - Can work out ints
+            <hr/>
+            <b>All data is immutable</b><br/>
+            - Cant accidentally mutate data 
+            <hr/>
+            <b>All functions are pure (no side effects)</b><br/>
+            - Same input, same output <br/>
+            - Guarantees <br/>
+            - Cant mix imperative and functional code like JS
+            - There is ways to do imperative commands (see later)
+            <hr/>
+            <b>'null' / 'undefined' / Exceptions do not exist</b><br/>
+            - Achieved through strict types and immutable data
+            <hr/>
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
@@ -150,11 +169,26 @@ export default class Presentation extends React.Component {
             </div>
           </div>
           <Notes>
-            - Mirror elm in JS, possible options
+            - Maybe in JS you have a stack like this to mirror elm
             <hr/>
-            - Only one way to do all these things / structure code (elm architecture)
+            <b>npm</b><br/>
+            - Dependency management<br/>
+            <b>Webpack</b><br/>
+            - Bundle generation<br/>
+            - Dead code elimination<br/>
+            <b>React</b><br/>
+            - Components<br/>
+            - Scoping<br/>
+            <b>Redux</b><br/>
+            - Data management<br/>
+            <b>Typescript</b><br/>
+            - Types and annotations<br/>
+            <b>Immutable.js</b><br/>
+            - Preventing accidentally mutating<br/>
             <hr/>
-            - They all work together nicely, maybe you have experienced pain points from integration JS stack together
+            - Only one way to structure code (elm architecture)
+            <hr/>
+            - Baked in, work together nicely
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="quaternary" textColor="tertiary">
@@ -165,13 +199,18 @@ export default class Presentation extends React.Component {
             <BlockQuote>"The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is <span style={{color: '#942c2c'}}>[TypeError: color is not a property of undefined]</span>"</BlockQuote>
           </Text>
           <Notes>
-            - In elm you can write code that is wrong
+            - Touched on before no exceptions<br/>
+            - What does this result in?
             <hr/>
-            - In JS you can write code that is broken
+            - Elm wrong
+            <hr/>
+            - JS Broken
             <hr/>
             - Functional won't save you from semantic incorrectness but will save you from broken
             <hr/>
-            - Could do this in plain JS with typescript and get the same benefit, but imperative code might be tempting under time pressure
+            - Can do in JS (and maybe TS) <br/>
+            - Imperative code might be tempting under time pressure
+            - e.g sprinkle in a function that mutates global state
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="quaternary">
@@ -194,7 +233,7 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 5] },
             { loc: [5, 9], note: 'Initial Data Model'},
-            { loc: [9, 15], note: 'Msg is like redux actions. Update contains all business logic' },
+            { loc: [9, 15], note: 'Update contains all business logic' },
             { loc: [15, 18], note: 'Builds HTML. Set up messages (Msg) that might be triggered' }
           ]}>
           <Notes>
@@ -294,7 +333,8 @@ export default class Presentation extends React.Component {
           </div>
           <br/>
           <Notes>
-            Element, introduces commands and subscriptions which let you interact with the outside world (Javascript)
+            - Introduces commands and subscriptions<br/>
+            - Which let you interact with the outside world (Javascript)
             <hr/>
             Can command the runtime system to make HTTP request
             <hr/>
