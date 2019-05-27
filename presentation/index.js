@@ -48,7 +48,8 @@ const images = {
   element7: require('../assets/element-7.svg'),
   element8: require('../assets/element-8.svg'),
   element9: require('../assets/element-9.svg'),
-  element10: require('../assets/element-10.svg')
+  element10: require('../assets/element-10.svg'),
+  browserKey: require('../assets/browser-key.svg'),
 };
 
 // Require CSS
@@ -282,30 +283,37 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox1} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox2} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox3} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox4} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox5} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox6} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Sandbox</Heading>
           <img src={images.sandbox7} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']} bgColor="quaternary">
           <Heading size={4} textColor="primary">Side effects?</Heading>
@@ -344,42 +352,52 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element1} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element2} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element3} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element4} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element5} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element6} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element7} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element8} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element9} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={6} textAlign={'left'}>Browser.Element</Heading>
           <img src={images.element10} style={{width: '100%'}}/>
+          <img src={images.browserKey} style={{float: 'left'}}/>
         </Slide>
         <Slide bgColor="quaternary" >
           <Heading textColor="primary" size={5}>I have not worked out yet</Heading>
