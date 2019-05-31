@@ -138,6 +138,9 @@ export default class Presentation extends React.Component {
             <b>'null' / 'undefined' / Exceptions do not exist</b><br/>
             - Achieved through strict types and immutable data
             <hr/>
+            What elm does well<br/>
+            - Refactoring is so easy<br/>
+            - Helpful complier
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
@@ -219,6 +222,7 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>Pattern for creating applications</ListItem>
             <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
+            <ListItem>One-way data flow</ListItem>
             <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
           </List>
           <Notes>
@@ -434,10 +438,19 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
         <Slide bgColor="quaternary" >
-          <Heading textColor="primary" size={5}>I have not worked out yet</Heading>
+          <Heading textColor="primary" size={5}>When not to use Elm?</Heading>
           <List>
-            <ListItem>How and when to break a file into multiple modules. Interesting talk: <a href="https://www.youtube.com/watch?v=XpDsk374LDE">The life of a file</a></ListItem>
+            <ListItem>When you are reliant on existing Javascript libraries</ListItem>
+            <ListItem>All packages have to be written in elm (Good and Bad). Only core libraries can use JS</ListItem>
+            <ListItem>Growing but not huge ecosystem of packages compared to JS</ListItem>
+            <ListItem>Learning curve might mean slow progress</ListItem>
+            <ListItem>Lack of breakpoint debugging</ListItem>
           </List>
+          <Notes>
+            - Personally have not used elm on a large app<br/>
+            <hr/>
+            If new browser feature was released you will have to wait for elm to update
+          </Notes>
         </Slide>
         <Slide bgColor="quaternary">
           <Heading textColor="primary">Resources</Heading>
