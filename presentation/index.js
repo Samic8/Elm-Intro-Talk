@@ -109,9 +109,9 @@ export default class Presentation extends React.Component {
               <List>
                 <ListItem>Compiles to Javascript</ListItem>
                 <ListItem>Functional language</ListItem>
+                <ListItem>All functions are pure (no side effects)</ListItem>
                 <ListItem>Statically typed + inference</ListItem>
                 <ListItem>All data is immutable</ListItem>
-                <ListItem>All functions are pure (no side effects)</ListItem>
                 <ListItem>'null' / 'undefined' / Exceptions do not exist</ListItem>
               </List>
             </div>
@@ -217,20 +217,6 @@ export default class Presentation extends React.Component {
             - e.g sprinkle in a function that mutates global state
           </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="quaternary">
-          <Heading size={4} textColor="primary">The Elm Architecture</Heading>
-          <List>
-            <ListItem>Pattern for creating applications</ListItem>
-            <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
-            <ListItem>One-way data flow</ListItem>
-            <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
-          </List>
-          <Notes>
-            - Opinionated pattern, only way to structure applications
-            <hr/>
-            - Lets get into a example of how all elm apps are structured
-          </Notes>
-        </Slide>
         <CodeSlide
           bgColor="primary"
           lang="elm"
@@ -265,6 +251,20 @@ export default class Presentation extends React.Component {
             { loc: [9, 17], note: 'Actions that can happen in our app. Business logic goes here'},
             { loc: [17, 24], note: 'View is called after every Model change. Builds HTML'},
           ]}/>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={4} textColor="primary">The Elm Architecture</Heading>
+          <List>
+            <ListItem>Pattern for creating applications</ListItem>
+            <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
+            <ListItem>One-way data flow</ListItem>
+            <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
+          </List>
+          <Notes>
+            - Opinionated pattern, only way to structure applications
+            <hr/>
+            - Lets get into a example of how all elm apps are structured
+          </Notes>
+        </Slide>
         <Slide transition={['fade']}>
           <div style={{display: 'flex'}}>
             <span><b>main</b> = Browser.<span style={{color: '#60B5CC'}}>Sandbox</span> &#123;</span>
@@ -437,13 +437,12 @@ export default class Presentation extends React.Component {
             <img src={images.browserKey}/>
           </div>
         </Slide>
-        <Slide bgColor="quaternary" >
+        <Slide bgColor="tertiary" >
           <Heading textColor="primary" size={5}>When not to use Elm?</Heading>
           <List>
             <ListItem>When you are reliant on existing Javascript libraries</ListItem>
             <ListItem>All packages have to be written in elm (Good and Bad). Only core libraries can use JS</ListItem>
             <ListItem>Growing but not huge ecosystem of packages compared to JS</ListItem>
-            <ListItem>Learning curve might mean slow progress</ListItem>
             <ListItem>Lack of breakpoint debugging</ListItem>
           </List>
           <Notes>
