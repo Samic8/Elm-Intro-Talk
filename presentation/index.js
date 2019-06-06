@@ -60,7 +60,7 @@ const theme = createTheme(
     primary: 'white',
     secondary: '#444951',
     tertiary: '#03A9FC',
-    quaternary: '#60B5CC'
+    quaternary: '#90d3e5'
   },
   {
     primary: 'Montserrat',
@@ -109,41 +109,28 @@ export default class Presentation extends React.Component {
               <List>
                 <ListItem>Compiles to Javascript</ListItem>
                 <ListItem>Functional language</ListItem>
+                <ListItem>All functions are pure (no side effects)</ListItem>
                 <ListItem>Statically typed + inference</ListItem>
                 <ListItem>All data is immutable</ListItem>
-                <ListItem>All functions are pure (no side effects)</ListItem>
                 <ListItem>'null' / 'undefined' / Exceptions do not exist</ListItem>
               </List>
             </div>
           </Appear>
           <Notes>
-            <b>Compiles to Javascript</b><br/>
-            - Completely new language<br/>- Compiles to JS
+            Completely new language<br/>
+            Type annotations<br/>
+            Can work out ints<br/>
             <hr/>
-            <b>Functional Language</b><br/>
-            <hr/>
-            <b>Statically typed + inference</b><br/>
-            - Type annotations
-            - Can work out ints
-            <hr/>
-            <b>All data is immutable</b><br/>
-            - Cant accidentally mutate data 
-            <hr/>
-            <b>All functions are pure (no side effects)</b><br/>
-            - Same input, same output <br/>
-            - Guarantees <br/>
-            - Cant mix imperative and functional code like JS
-            - There is ways to do imperative commands (see later)
-            <hr/>
-            <b>'null' / 'undefined' / Exceptions do not exist</b><br/>
-            - Achieved through strict types and immutable data
+            Same input, same output <br/>
+            Guarantees <br/>
+            Cant mix imperative
             <hr/>
             What elm does well<br/>
-            - Refactoring is so easy<br/>
-            - Helpful complier
+            Refactoring is so easy<br/>
+            Helpful complier
           </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide transition={['fade']} bgColor="quaternary">
           <div style={{display: 'flex'}}>
             <div style={{flex: '1 1 0'}}>
               <Heading size={5} textColor="secondary" style={{marginBottom: '2rem'}}>
@@ -173,26 +160,14 @@ export default class Presentation extends React.Component {
             </div>
           </div>
           <Notes>
-            - Maybe in JS you have a stack like this to mirror elm
+            What you get in elm 
             <hr/>
-            <b>npm</b><br/>
-            - Dependency management<br/>
-            <b>Webpack</b><br/>
-            - Bundle generation<br/>
-            - Dead code elimination<br/>
-            <b>React</b><br/>
-            - Components<br/>
-            - Scoping<br/>
-            <b>Redux</b><br/>
-            - Data management<br/>
-            <b>Typescript</b><br/>
-            - Types and annotations<br/>
-            <b>Immutable.js</b><br/>
-            - Preventing accidentally mutating<br/>
+            Dead code elimination<br/>
             <hr/>
-            - Only one way to structure code (elm architecture)
+            Only one way in elm
             <hr/>
-            - Baked in, work together nicely
+            Baked in, work together nicely<br/>
+            JS Swap in and out
           </Notes>
         </Slide>
         <Slide transition={['fade']} bgColor="quaternary" textColor="tertiary">
@@ -203,32 +178,17 @@ export default class Presentation extends React.Component {
             <BlockQuote>"The sky is <span style={{color: 'green'}}>green</span>" vs "The sky is <span style={{color: '#942c2c'}}>[TypeError: color is not a property of undefined]</span>"</BlockQuote>
           </Text>
           <Notes>
-            - Touched on before no exceptions<br/>
-            - What does this result in?
+            Started, hard to imagine
             <hr/>
-            - Elm wrong
+            Elm wrong
             <hr/>
-            - JS Broken
+            JS Broken
             <hr/>
-            - Functional won't save you from semantic incorrectness but will save you from broken
+            Functional won't save you from incorrectness but will save you from broken
             <hr/>
-            - Can do in JS (and maybe TS) <br/>
-            - Imperative code might be tempting under time pressure
-            - e.g sprinkle in a function that mutates global state
-          </Notes>
-        </Slide>
-        <Slide transition={['fade']} bgColor="quaternary">
-          <Heading size={4} textColor="primary">The Elm Architecture</Heading>
-          <List>
-            <ListItem>Pattern for creating applications</ListItem>
-            <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
-            <ListItem>One-way data flow</ListItem>
-            <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
-          </List>
-          <Notes>
-            - Opinionated pattern, only way to structure applications
-            <hr/>
-            - Lets get into a example of how all elm apps are structured
+            Can do in JS (and maybe TS) <br/>
+            Imperative code might be tempting<br/>
+            e.g sprinkle in a function that mutates global state
           </Notes>
         </Slide>
         <CodeSlide
@@ -265,6 +225,20 @@ export default class Presentation extends React.Component {
             { loc: [9, 17], note: 'Actions that can happen in our app. Business logic goes here'},
             { loc: [17, 24], note: 'View is called after every Model change. Builds HTML'},
           ]}/>
+        <Slide transition={['fade']} bgColor="quaternary">
+          <Heading size={4} textColor="primary">The Elm Architecture</Heading>
+          <List>
+            <ListItem>Pattern for creating applications</ListItem>
+            <ListItem>Projects like redux have been inspired by it so some ideas here might some familiar</ListItem>
+            <ListItem>One-way data flow</ListItem>
+            <ListItem>Separate concept form the core language which is the basic types, functions and syntax. e.g. ("hello" ++ "world")</ListItem>
+          </List>
+          <Notes>
+            Opinionated pattern
+            <hr/>
+            Only way to structure applications
+          </Notes>
+        </Slide>
         <Slide transition={['fade']}>
           <div style={{display: 'flex'}}>
             <span><b>main</b> = Browser.<span style={{color: '#60B5CC'}}>Sandbox</span> &#123;</span>
@@ -338,7 +312,7 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>HTTP</ListItem>
             <ListItem>Time</ListItem>
-            <ListItem>DOM event commands (focus, click)</ListItem>
+            <ListItem>DOM events (focus, click)</ListItem>
           </List>
           <Notes>
             Mentioned no side effects in Elm code
@@ -359,12 +333,13 @@ export default class Presentation extends React.Component {
           </div>
           <br/>
           <Notes>
-            - Introduces commands and subscriptions<br/>
-            - Which let you interact with the outside world (Javascript)
+            Commands and subscriptions<br/>
             <hr/>
-            Can command the runtime system to make HTTP request
+            Can <b>Command</b> the runtime system to make HTTP request
             <hr/>
-            Or we can subscribe to the current time every 10 seconds
+            <b>Subscribe</b> to the current time every 10 seconds
+            <hr/>
+            Interact with the outside world (Javascript)
           </Notes>
         </Slide>
         <Slide transition={['fade']}>
@@ -441,15 +416,14 @@ export default class Presentation extends React.Component {
           <Heading textColor="primary" size={5}>When not to use Elm?</Heading>
           <List>
             <ListItem>When you are reliant on existing Javascript libraries</ListItem>
-            <ListItem>All packages have to be written in elm (Good and Bad). Only core libraries can use JS</ListItem>
+            <ListItem>All packages have to be written in elm. Only core libraries can use JS (Good and Bad)</ListItem>
             <ListItem>Growing but not huge ecosystem of packages compared to JS</ListItem>
-            <ListItem>Learning curve might mean slow progress</ListItem>
             <ListItem>Lack of breakpoint debugging</ListItem>
           </List>
           <Notes>
-            - Personally have not used elm on a large app<br/>
+            Not used elm on a large app<br/>
             <hr/>
-            If new browser feature was released you will have to wait for elm to update
+            Wait for elm to update, new JS feature
           </Notes>
         </Slide>
         <Slide bgColor="quaternary">
@@ -460,7 +434,7 @@ export default class Presentation extends React.Component {
             <ListItem>elm cli: <b>elm repl</b></ListItem>
           </List>
           <Notes>
-            - elm repl good for learning the core language
+            elm repl good for learning the core language
           </Notes>
         </Slide>
       </Deck>
